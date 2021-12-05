@@ -34,7 +34,8 @@ fun app() {
 
         var index = 0
         for (i in fromNumber.toString().reversed()) {
-            localResult += (i.code.toLong() - 48) * (base.toDouble().pow(index.toDouble())).toLong()
+            // FIXME
+            localResult += (i.code.toLong() - 48L) * (base.toDouble().pow(index.toDouble())).toLong()
             index++
         }
 
@@ -95,7 +96,7 @@ fun main() = application {
             size = WindowSize(width = 400.dp, height = 400.dp)
         ),
         resizable = false,
-        onCloseRequest = ::exitApplication
+        onCloseRequest = { this.exitApplication() }
     ) {
         app()
     }
